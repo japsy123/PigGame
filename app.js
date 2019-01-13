@@ -36,6 +36,27 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     // Update dice
     diceDom.src = 'dice-' + dice + '.png';
 
-    // update score
+    // update round score if the rolled number was not 1
+
+    if( dice !== 1) {
+        roundScore += dice;
+        document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    } else {
+            // set roundscore to zero. 
+            //  Hide the dice
+            // update the both the current scores in UI
+            //  Change the active player and its class
+            activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+            roundScore = 0;
+
+            document.getElementById('current-0').textContent = '0';
+            document.getElementById('current-1').textContent = '0';
+
+            document.querySelector('.player-0-panel').classList.toggle('active');
+            document.querySelector('.player-1-panel').classList.toggle('active');
+
+            document.querySelector('.dice').style.display = 'none';
+
+    }
 
 })
