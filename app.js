@@ -60,3 +60,28 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     }
 
 })
+
+document.querySelector('.btn-hold').addEventListener('click', function(){
+
+    // Save the score
+    scores[activePlayer] += roundScore;
+
+    //  Update the UI
+    document.querySelector("#score-0").textContent = scores[0];
+    document.querySelector("#score-1").textContent = scores[1];
+
+    // Change the player
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+
+    // roundScore = 0;
+
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+    document.querySelector('.dice').style.display = 'none';
+
+    //  Check for winning condition 
+})
